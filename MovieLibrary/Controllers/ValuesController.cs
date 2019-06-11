@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,34 +8,47 @@ using System.Web.Http;
 
 namespace MovieLibrary.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
+        public ApplicationDbContext db = new ApplicationDbContext();
         // GET api/values
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var movies = db.Movies.ToList();
+            return Ok(movies);
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var movie = db.Movies.Find(id);
+            return Ok(movie);
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post([FromBody]Movie movie)
         {
+            db.Movies.Add(movie);
+            return Ok();
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, [FromBody]Movie updatedMovie)
         {
+            var movieToUpdate = db.Movies.Find(id);
+            movieToUpdate.Title = updatedMovie.Title;
+            movieToUpdate.Genre = updatedMovie.Genre;
+            movieToUpdate.DirectorName = updatedMovie.DirectorName;
+            return Ok();
         }
 
         // DELETE api/values/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            var movieToDelete = db.Movies.Find(id);
+            db.Movies.Remove(movieToDelete);
+            return Ok();
         }
     }
 }
