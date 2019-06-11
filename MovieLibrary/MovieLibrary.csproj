@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201906111915237_BuildMoviesTable.Designer.cs">
       <DependentUpon>201906111915237_BuildMoviesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906111920219_SeedingTheMoviesTable.cs" />
+    <Compile Include="Migrations\201906111920219_SeedingTheMoviesTable.Designer.cs">
+      <DependentUpon>201906111920219_SeedingTheMoviesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -316,6 +320,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906111915237_BuildMoviesTable.resx">
       <DependentUpon>201906111915237_BuildMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906111920219_SeedingTheMoviesTable.resx">
+      <DependentUpon>201906111920219_SeedingTheMoviesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
