@@ -1,0 +1,10 @@
+body 
+{
+    font-family: "Georgia, serif"
+}
+.backgroundHome
+{
+    background-image: url("../images/indexBackground.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+}
