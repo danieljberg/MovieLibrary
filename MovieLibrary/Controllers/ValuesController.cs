@@ -1,4 +1,5 @@
-﻿using MovieLibrary.Models;
+﻿using MovieLibrary.Cors;
+using MovieLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Http;
 namespace MovieLibrary.Controllers
 {
     //[Authorize]
+    [AllowCrossSiteAttribute]
     public class ValuesController : ApiController
     {
         public ApplicationDbContext db = new ApplicationDbContext();
