@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "f0d968b8-f0a3-4ace-b762-32fc2f81e54a",
+		"name": "MoviesLibrary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:51741/api/values",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51741",
+					"path": [
+						"api",
+						"values"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:51741/api/values/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51741",
+					"path": [
+						"api",
+						"values",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete one movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:51741/api/values/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51741",
+					"path": [
+						"api",
+						"values",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

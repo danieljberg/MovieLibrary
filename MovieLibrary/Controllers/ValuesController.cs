@@ -6,11 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace MovieLibrary.Controllers
 {
-    //[Authorize]
-    [AllowCrossSiteAttribute]
+    //[EnableCors("*", "*", "*")]
     public class ValuesController : ApiController
     {
         public ApplicationDbContext db = new ApplicationDbContext();
@@ -29,9 +29,11 @@ namespace MovieLibrary.Controllers
         }
 
         // POST api/values
-        public IHttpActionResult Post([FromBody]Movie movie)
+        public IHttpActionResult Post([FromBody] Movie movie)
         {
             db.Movies.Add(movie);
+            db.SaveChanges();
+            //var updatedMovies = db.Movies.ToList();
             return Ok();
         }
 
