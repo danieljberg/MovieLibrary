@@ -2,24 +2,75 @@ body
 {
     font-family: "Georgia, serif"
 }
-/* .backgroundHome
+.backgroundHome
 {
-    background-image: url("../images/indexBackground.jpg");
+    background-image: url("../images/movie-background.jpg");
     background-size: 100%;
     background-attachment: fixed;
-} */
-table 
-        {
-            width: 100%;
-            font: 17px Calibri;
-        }
-        table, th, td 
-        {
-            border: solid 1px #DDD;
-            border-collapse: collapse;
-            padding: 2px 3px;
-            text-align: center;
-        }
-        .input, div {
-            font:13px Verdana;
-        }
+}
+.headerHome{
+    margin: 35px;
+    padding: 10px;
+    border: 4px;
+    border-radius: 10px;
+    border-color: rgb(28, 16, 70);
+    text-align: center;
+    font-size: 48px;
+    color: white;
+    background-color: rgba(12, 11, 10, 0.384);    
+    font-weight: bolder;
+  }
+  .header{
+    margin: 35px;
+    padding: 10px;
+    border: 4px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 48px;
+    background-color: rgb(20, 13, 4);
+    font-weight: bolder;
+  
+   }
+  .footer{
+    text-align: right;
+    color: white;
+    font-family: "URW Chancery L, cursive";
+    font-size: 36px;
+  }
+  .topnav {
+    background-color: rgba(7, 6, 54, 0.5);
+    overflow: hidden;
+    border-radius: 10px
+  }
+  .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  .topnav a:hover {
+    background-color: rgba(90, 88, 233, 0.603);
+    color: black;
+  }
+  .topnav a.active {
+    background-color: rgba(60, 0, 139, 0.616);
+    color: white;
+  }
+table {
+    width: 100%;
+    font: 17px Calibri;
+}
+table, th, td 
+{
+    border: solid 1px rgb(84, 17, 161);
+    background: rgba(136, 133, 170, 0.575);
+    border-collapse: collapse;
+    padding: 2px 3px;
+    text-align: center;
+}
+.input, div {
+    font:13px Verdana;
+}

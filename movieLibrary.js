@@ -11,13 +11,28 @@ $(document).ready(function () {
                         '<tr><td>' + item.Title +
                         '</td>,<td>' + item.Genre +
                         '</td>,<td>' + item.DirectorName +
-                        '</td></tr>'
+                        '</td>,<td><button class=edit>Edit</button> <button class=delete>Delete</button></td></tr>'
                     )
                 })
             }
         })
     });
-    //$("#search").keyup(function(){
+    
+
+    $("body").on("click", ".edit", function(){
+        var title = $(this).parents("tr").attr('data-title');
+        var genre = $(this).parents("tr").attr('data-genre');
+        var directorName = $(this).parents("tr").attr('data-directorName');
+    
+        $(this).parents("tr").find("td:eq(0)").html('<input name="edit_title" value="'+title+'">');
+        $(this).parents("tr").find("td:eq(1)").html('<input name="edit_genre" value="'+genre+'">');
+        $(this).parents("tr").find("td:eq(2)").html('<input name="edit_directorName" value="'+directorName+'">');
+        $(this).parents("tr").find("td:eq(3)").prepend("<button class='btn btn-info btn-xs btn-update'>Update</button><button class='btn btn-warning btn-xs btn-cancel'>Cancel</button>")
+        $(this).hide();
+    });
+
+    
+
     $("#search").keyup(function(event){
         if (event.keyCode === 13) {
             var search = $("#search").val();
@@ -33,7 +48,7 @@ $(document).ready(function () {
                                 '<tr><td>' + item.Title +
                                 '</td>,<td>' + item.Genre +
                                 '</td>,<td>' + item.DirectorName +
-                                '</td></tr>'
+                                '</td>,<td><button class=edit> Edit </button> <button class=delete>Delete</button></td></tr>'
                             )
                         }
                     })
@@ -41,7 +56,6 @@ $(document).ready(function () {
             })
         }
     });
-
 
     $(".add-movie").click(function (e) {
         $('#allMovies').find('tbody').empty();
@@ -65,43 +79,14 @@ $(document).ready(function () {
                         '<tr><td>' + item.Title +
                         '</td>,<td>' + item.Genre +
                         '</td>,<td>' + item.DirectorName +
-                        '</td></tr>'
+                        '</td>,<td><button class=edit> Edit </button> <button class=delete>Delete</button></td></tr>'
                     )
                 })
             }
         })
         e.preventDefault();
     });
-
-
-    // $("#btAdd").click(function(){
-    //     var title = $('#title')[0].value;
-    //     var genre = $('genre');
-    //     var directorName = $('directorName');
-
-    //     var movie = {
-    //         title: title,
-    //         genre: genre.val(),
-    //         directorName: directorName.val()
-    //     }
-    //     var movieToAdd = JSON.stringify(movie);
-    //     $.ajax({
-    //         method: 'POST',
-    //         url: 'http://localhost:51741/api/values',
-    //         data: movieToAdd,
-    //         datatype: 'JSON',
-    //         success: function(newData){
-    //             $(newData).each(function (index, item){
-    //                 $("#allMovies tbody").append(
-    //                     '<tr><td>' + item.Title +
-    //                     '</td>,<td>' + item.Genre +
-    //                     '</td>,<td>' + item.DirectorName +
-    //                     '</td></tr>'
-    //                 )
-    //             })
-    //         }            
-    //     })
-    // });    
+    
 });
 
 
