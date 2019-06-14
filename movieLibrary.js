@@ -17,12 +17,34 @@ $(document).ready(function () {
             }
         })
     });
-    // $("#btsearch").click(function(){
-
-    // });
+    //$("#search").keyup(function(){
+    $("#search").keyup(function(event){
+        if (event.keyCode === 13) {
+            var search = $("#search").val();
+            $('#allMovies').find('tbody').empty();
+            $.ajax({
+                method: 'GET',
+                url: "http://localhost:51741/api/values",
+                datatype: "JSON",
+                success: function (data) {
+                    $(data).each(function (index, item) {
+                        if (item.Title==search||item.Genre==search||item.DirectorName==search){
+                            $("#allMovies tbody").append(
+                                '<tr><td>' + item.Title +
+                                '</td>,<td>' + item.Genre +
+                                '</td>,<td>' + item.DirectorName +
+                                '</td></tr>'
+                            )
+                        }
+                    })
+                }
+            })
+        }
+    });
 
 
     $(".add-movie").click(function (e) {
+        $('#allMovies').find('tbody').empty();
         var title = $("#title").val();
         var genre = $("#genre").val();
         var directorName = $("#directorName").val();
@@ -36,7 +58,17 @@ $(document).ready(function () {
             url: 'http://localhost:51741/api/values',
             data: JSON.stringify(movieToAdd),
             contentType: 'application/json',
-            dataType: 'JSON'
+            dataType: 'JSON',
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    $("#allMovies tbody").append(
+                        '<tr><td>' + item.Title +
+                        '</td>,<td>' + item.Genre +
+                        '</td>,<td>' + item.DirectorName +
+                        '</td></tr>'
+                    )
+                })
+            }
         })
         e.preventDefault();
     });

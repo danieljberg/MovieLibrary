@@ -10,7 +10,7 @@ using System.Web.Http.Cors;
 
 namespace MovieLibrary.Controllers
 {
-    //[EnableCors("*", "*", "*")]
+    [EnableCors("*", "*", "*")]
     public class ValuesController : ApiController
     {
         public ApplicationDbContext db = new ApplicationDbContext();
@@ -33,8 +33,8 @@ namespace MovieLibrary.Controllers
         {
             db.Movies.Add(movie);
             db.SaveChanges();
-            //var updatedMovies = db.Movies.ToList();
-            return Ok();
+            var updatedMovies = db.Movies.ToList();
+            return Ok(updatedMovies);
         }
 
         // PUT api/values/5
